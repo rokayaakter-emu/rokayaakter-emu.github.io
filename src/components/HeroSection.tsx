@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { FileText, Mail, ArrowDown, Download } from "lucide-react";
-import profileAvatar from "@/assets/profile-avatar.png";
+import profileAvatar from "@/assets/Rokaya Akter.jpg";
 
 const HeroSection = () => {
   return (
@@ -17,7 +17,7 @@ const HeroSection = () => {
             <div className="mb-5">
               <img
                   src={profileAvatar}
-                  alt="Md. Mosfikur Rahman"
+                  alt="Rokaya Akter"
                   className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 rounded-full mx-auto border border-accent/40 object-cover shadow-md"
               />
             </div>
@@ -29,7 +29,7 @@ const HeroSection = () => {
 
             {/* Name */}
             <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-4 px-2">
-              Md. Mosfikur Rahman
+              Rokaya Akter
             </h1>
 
             <div className="w-14 h-[2px] bg-accent mx-auto mb-4" />
