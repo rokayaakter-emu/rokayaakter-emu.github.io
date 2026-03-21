@@ -5,8 +5,8 @@ set -e  # Exit on error
 TMPDIR="${TMPDIR:-/tmp}"
 
 # Checkout source branch and build
-git checkout dynamic-source-2
-git pull origin dynamic-source-2
+git checkout source
+git pull origin source
 
 npm install
 npm run build
@@ -15,8 +15,8 @@ npm run build
 cp -r dist "$TMPDIR/dist-backup"
 
 # Switch to target branch
-git checkout dynamic-2
-git pull origin dynamic-2
+git checkout main
+git pull origin main
 
 # Remove everything except .git and .idea
 shopt -s extglob
@@ -28,8 +28,8 @@ rm -rf "$TMPDIR/dist-backup"
 
 # Commit and push
 git add .
-git commit -m "Deploy from dynamic-source-2 at $(date '+%Y-%m-%d %H:%M:%S')"
-git push -u origin dynamic-2
+git commit -m "Deploy from source at $(date '+%Y-%m-%d %H:%M:%S')"
+git push -u origin main
 
 # Switch back
-git checkout dynamic-source-2
+git checkout source
