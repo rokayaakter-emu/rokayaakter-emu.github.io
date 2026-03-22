@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:wght@400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -117,7 +115,7 @@
   }
 
   h1, h2, h3 {
-    font-family: 'Source Serif 4', serif;
+    font-family: Georgia, "Times New Roman", serif;
   }
 }
 
@@ -132,6 +130,8 @@
 
   .section-padding {
     @apply py-16 md:py-24 px-6 md:px-12 lg:px-20;
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 900px;
   }
 
   .section-label {
@@ -147,20 +147,25 @@
   }
 
   .glass-panel {
-    @apply border border-border/70 bg-card/80 backdrop-blur-md shadow-sm;
+    @apply border border-border/70 bg-card/95 shadow-sm;
   }
 
   .elevated-card {
     @apply border border-border bg-card shadow-sm hover:shadow-md transition-all duration-300;
+    transform: translateZ(0);
+  }
+
+  .elevated-card:hover {
+    transform: translateY(-3px);
   }
 
   .tilt-hover {
-    transform-style: preserve-3d;
     will-change: transform;
+    transition: transform 240ms ease, box-shadow 240ms ease;
   }
 
   .tilt-hover:hover {
-    transform: perspective(1200px) rotateX(1.4deg) rotateY(-1.4deg) translateY(-2px);
+    transform: translateY(-2px);
   }
 
   .aurora-bg {
@@ -173,15 +178,16 @@
   .aurora-orb {
     position: absolute;
     border-radius: 9999px;
-    filter: blur(60px);
-    opacity: 0.35;
-    animation: float-soft 10s ease-in-out infinite;
+    filter: blur(24px);
+    opacity: 0.14;
+    animation: none;
+    will-change: auto;
   }
 
   .gradient-heading {
     @apply bg-gradient-to-r from-foreground via-accent to-foreground bg-clip-text text-transparent;
-    background-size: 200% 200%;
-    animation: text-shine 5s ease-in-out infinite;
+    background-size: 100% 100%;
+    animation: none;
   }
 
   .shimmer-border {
@@ -195,9 +201,14 @@
     inset: -1px;
     border-radius: inherit;
     background: linear-gradient(120deg, hsl(var(--border)), hsl(var(--accent) / 0.45), hsl(var(--border)));
-    background-size: 200% 200%;
-    animation: border-shimmer 4s linear infinite;
+    background-size: 180% 180%;
+    transition: background-position 320ms ease, opacity 320ms ease;
     z-index: -1;
+  }
+
+  .shimmer-border:hover::before {
+    background-position: 100% 50%;
+    opacity: 0.9;
   }
 
   .research-grid-bg {
@@ -208,8 +219,19 @@
 
   .soft-spotlight {
     box-shadow:
-      0 10px 35px hsl(var(--primary) / 0.08),
-      0 2px 10px hsl(var(--accent) / 0.08);
+      0 8px 24px hsl(var(--primary) / 0.07),
+      0 2px 8px hsl(var(--accent) / 0.05);
+  }
+
+  .micro-float:hover {
+    transform: translateY(-3px);
+  }
+
+  .backdrop-blur-sm,
+  .backdrop-blur-md,
+  .backdrop-blur-xl {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
   }
 }
 
@@ -239,5 +261,16 @@
   }
   100% {
     background-position: 200% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-orb,
+  .gradient-heading {
+    animation: none !important;
+  }
+
+  .tilt-hover:hover {
+    transform: none;
   }
 }

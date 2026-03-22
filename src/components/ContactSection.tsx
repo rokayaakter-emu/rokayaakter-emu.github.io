@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Phone, Globe } from "lucide-react";
+import { Mail, Phone, Linkedin } from "lucide-react";
 
 const ContactSection = () => {
   return (
@@ -51,13 +51,13 @@ const ContactSection = () => {
             </a>
 
             <a
-              href="https://www.hnu.edu.cn"
+              href="https://www.linkedin.com/in/rokaya-akter-emu/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition"
-              aria-label="Hunan University"
+              aria-label="LinkedIn"
             >
-              <Globe className="w-5 h-5" />
+              <Linkedin className="w-5 h-5" />
             </a>
           </div>
 
