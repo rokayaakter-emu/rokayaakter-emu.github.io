@@ -1,172 +1,134 @@
 import { motion } from "framer-motion";
 
-const PublicationsSection = () => {
-  const journals = [
-    {
-      authors: "Rahman, M.M.*, Saifuzzaman, M., Ahmed, A., Mahin, M.F.M., & Shetu, S.F.",
-      title: "Impact of COVID-19 on mental health: A quantitative analysis of anxiety and depression based on regular life and internet use",
-      venue: "Current Research in Behavioral Sciences, 2, 100037",
-      year: 2021,
-      doi: "10.1016/j.crbeha.2021.100037",
-    },
-    {
-      authors: "Saifuzzaman, M., Rahman, M.M., Shetu, S.F., & Moon, N.N.",
-      title: "COVID-19 and Bangladesh: Situation report, comparative analysis, and case study",
-      venue: "Current Research in Behavioral Sciences, 2, 100034",
-      year: 2021,
-      doi: "10.1016/j.crbeha.2021.100034",
-    },
-    {
-      authors: "Shetu, S.F., Rahman, M.M., Ahmed, A., Mahin, M.F.M., Akib, M.A.U., & Saifuzzaman, M.",
-      title: "Impactful e-learning framework: A new hybrid form of education",
-      venue: "Current Research in Behavioral Sciences, 2, 100038",
-      year: 2021,
-      doi: "10.1016/j.crbeha.2021.100038",
-    },
-  ];
+type Publication = {
+  authors: string;
+  title: string;
+  venue: string;
+  year: number;
+  type: "journal" | "conference";
+  doi?: string;
+};
 
-  const conferences = [
-    {
-      authors: "Rahman, M.M., Kashem, M.A., Mohiuddin, M., Hossain, M.A., & Moon, N.N.",
-      title: "Future City of Bangladesh: IoT Based Autonomous Smart Sewerage and Hazard Condition Sharing System",
-      venue: "IEEE WIECON-ECE 2020, pp. 126–130",
-      year: 2020,
-      doi: "10.1109/WIECON-ECE52138.2020.9397950",
-      note: "🏆 Best Paper Award",
-    },
-    {
-      authors: "Moon, N.N., Sharmin, S., Hossain, R.A., Jahan, I., Nur, F.N., & Rahman, M.M.",
-      title: "Deep Learning Model for Detecting and Diagnosing Plant Disease",
-      venue: "IEEE SMART GENCON 2021, pp. 1–8",
-      year: 2021,
-      doi: "10.1109/SMARTGENCON51891.2021.9645857",
-    },
-    {
-      authors: "Rahman, M.M., Foysal, M.R., Moon, N.N., & Nur, F.N.",
-      title: "TraFoo: An Android Application for Food Delivery in Train",
-      venue: "IEEE SMART GENCON 2021, pp. 1–7",
-      year: 2021,
-      doi: "10.1109/SMARTGENCON51891.2021.9645900",
-    },
-    {
-      authors: "Yesmin, F., Rahman, M.M., Saifuzzaman, M., & Moon, N.N.",
-      title: "Pandemic Effect on Education System Among University Students",
-      venue: "Springer — Progresses in AI & Robotics, pp. 157–168",
-      year: 2022,
-      doi: "10.1007/978-3-030-98531-8_16",
-    },
-    {
-      authors: "Islam, T., Rahman, M.M., Jabiullah, M.I., & Saifuzzaman, M.",
-      title: "Cyber Security Intruder Detection Using Deep Learning Approach",
-      venue: "Springer — Information Systems and Management Science, pp. 518–530",
-      year: 2023,
-      doi: "10.1007/978-3-031-13150-9_42",
-    },
-    {
-      authors: "Johora, F.T., Alamin-Ul-Islam, Yesmin, F., & Rahman, M.M.",
-      title: "A New Chaotic-Based Analysis of Data Encryption and Decryption",
-      venue: "Springer — Advances in Data Science and AI, pp. 455–468",
-      year: 2023,
-      doi: "10.1007/978-3-031-16178-0_32",
-    },
-    {
-      authors: "Johora, F.T., Mahfuja, I.B., Rahman, A.N.M.M., Rahman, M.M., & Rahman, M.S.",
-      title: "Machine Learning-Based Prediction of COVID-19: A Robust Approach for Early Diagnosis and Treatment",
-      venue: "Springer — TCCE 2024, pp. 205–215",
-      year: 2024,
-      doi: "10.1007/978-981-97-1923-5_16",
-    },
-  ];
+const publications: Publication[] = [
+  {
+    authors: "Akter, R., Naizheng, B., Ullah, I., Singh, S., Singh, A., & Iqbal, M.",
+    title: "Fair client selection and encrypted aggregation: a federated learning framework for intrusion detection in resource-constrained networks",
+    venue: "Cluster Computing, 29(3), 164",
+    year: 2026,
+    type: "journal",
+  },
+  {
+    authors: "Akter, R., Rishat, M. A. S. A., Singh, S., Singh, A., & Naizheng, B.",
+    title: "Generative AI–Guided Sentinel for Self-Optimizing Federated Cybersecurity and Intelligent Threat Detection",
+    venue: "Journal of Hunan University Natural Sciences, 52(12)",
+    year: 2025,
+    type: "journal",
+  },
+  {
+    authors: "Rokaya, A., Islam, S. M. T., Zhang, H., Sun, L., Zhu, M., & Zhao, L.",
+    title: "Acceptance of chatbot based on emotional intelligence through machine learning algorithm",
+    venue: "2022 2nd International Conference on Frontiers of Electronics, Information and Computation Technologies (ICFEICT), IEEE, pp. 610–616",
+    year: 2022,
+    type: "conference",
+    doi: "10.1109/ICFEICT57213.2022.00111",
+  },
+  {
+    authors: "Rokaya, A., Islam, S. M. T., & Mostafa, K.",
+    title: "Enhancing surgical precision: Deep learning-based depth estimation in minimally invasive surgery with the MiDaS model",
+    venue: "International Conference on Robot Intelligence Technology and Applications, Springer, pp. 46–57",
+    year: 2023,
+    type: "conference",
+    doi: "10.1007/978-3-031-70687-5_5",
+  },
+  {
+    authors: "Singh, S., Akter, R., Sultana, T., Liu, P., & Lu, X.",
+    title: "Generative Models for Personalized Federated Learning via Class-Separable Latent Spaces and Meta-Adaptation",
+    venue: "Journal of Hunan University Natural Sciences, 52(11)",
+    year: 2025,
+    type: "journal",
+  },
+  {
+    authors: "Quadir, B., Mostafa, K., Yang, J. C., Shen, J., & Akter, R.",
+    title: "ARCS approach to PTA-based programming language practice sessions: Factors influencing Programming Problem-Solving Skills",
+    venue: "Education and Information Technologies, 28(10), 13713–13735",
+    year: 2023,
+    type: "journal",
+    doi: "10.1007/s10639-023-11740-6",
+  },
+  {
+    authors: "Chunxiao, L., Akter, R., Meijia, T., Kexin, W., Jiao, W., & Xin, Z.",
+    title: "Research status and development suggestions of hawthorn pitting machine in China",
+    venue: "Scientific Journal of Intelligent Systems Research",
+    year: 2022,
+    type: "conference",
+  },
+];
 
-  const renderPub = (pub: typeof journals[0] & { note?: string }, i: number) => (
-      <motion.li
-          key={pub.doi}
-          className="pl-5 py-4 border-l border-border hover:border-accent transition-all"
-          initial={{ opacity: 0, x: -10 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.3, delay: i * 0.04 }}
+const renderPub = (pub: Publication, i: number) => (
+  <motion.li
+    key={`${pub.title}-${pub.year}`}
+    className="pl-5 py-4 border-l border-border hover:border-accent transition-all"
+    initial={{ opacity: 0, x: -10 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.3, delay: i * 0.04 }}
+  >
+    <p className="text-sm md:text-base font-medium text-foreground leading-relaxed">{pub.title}</p>
+
+    <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{pub.authors}</p>
+
+    <p className="text-xs text-muted-foreground mt-1">
+      <span className="italic">{pub.venue}</span>, {pub.year}
+    </p>
+
+    {pub.doi && (
+      <a
+        href={`https://doi.org/${pub.doi}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-xs text-accent hover:underline mt-2 inline-block"
       >
-        {/* Award */}
-        {pub.note && (
-            <span className="inline-block text-[11px] font-medium text-yellow-700 bg-yellow-100 px-2 py-0.5 rounded-full mb-2">
-          {pub.note}
-        </span>
-        )}
+        View Paper →
+      </a>
+    )}
+  </motion.li>
+);
 
-        {/* Title */}
-        <p className="text-sm md:text-base font-medium text-foreground leading-relaxed">
-          {pub.title}
-        </p>
-
-        {/* Authors */}
-        <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
-          {pub.authors}
-        </p>
-
-        {/* Venue */}
-        <p className="text-xs text-muted-foreground mt-1">
-          <span className="italic">{pub.venue}</span>, {pub.year}
-        </p>
-
-        {/* DOI */}
-        <a
-            href={`https://doi.org/${pub.doi}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-accent hover:underline mt-2 inline-block"
-        >
-          View Paper →
-        </a>
-      </motion.li>
-  );
+const PublicationsSection = () => {
+  const journals = publications.filter((item) => item.type === "journal");
+  const conferences = publications.filter((item) => item.type === "conference");
 
   return (
-      <section id="publications" className="section-padding max-w-5xl mx-auto">
+    <section id="publications" className="section-padding max-w-5xl mx-auto">
+      <motion.div
+        className="mb-14"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+      >
+        <p className="section-label">Publications</p>
+        <h2 className="section-title">Publication List</h2>
+        <p className="section-desc max-w-2xl">
+          Selected peer-reviewed publications in federated learning, AI, cybersecurity, NLP, and applied intelligent systems.
+        </p>
+      </motion.div>
 
-        {/* Header */}
-        <motion.div
-            className="mb-14"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-        >
-          <p className="section-label">Publications</p>
-
-          <h2 className="section-title">Publication List</h2>
-
-          <p className="section-desc max-w-2xl">
-            3 journal articles (Elsevier) and 7 conference papers (IEEE, Springer) — all peer-reviewed.
-          </p>
-        </motion.div>
-
-        {/* Content */}
-        <div className="space-y-12">
-
-          {/* Journals */}
-          <div>
-            <h3 className="font-display text-lg font-semibold text-foreground mb-6 pb-2 border-b border-border">
-              Peer-Reviewed Journal Articles
-            </h3>
-
-            <ul className="space-y-3">
-              {journals.map(renderPub)}
-            </ul>
-          </div>
-
-          {/* Conferences */}
-          <div>
-            <h3 className="font-display text-lg font-semibold text-foreground mb-6 pb-2 border-b border-border">
-              Conference Proceedings
-            </h3>
-
-            <ul className="space-y-3">
-              {conferences.map(renderPub)}
-            </ul>
-          </div>
-
+      <div className="space-y-12">
+        <div>
+          <h3 className="font-display text-lg font-semibold text-foreground mb-6 pb-2 border-b border-border">
+            Journal Articles
+          </h3>
+          <ul className="space-y-3">{journals.map(renderPub)}</ul>
         </div>
-      </section>
+
+        <div>
+          <h3 className="font-display text-lg font-semibold text-foreground mb-6 pb-2 border-b border-border">
+            Conference Proceedings
+          </h3>
+          <ul className="space-y-3">{conferences.map(renderPub)}</ul>
+        </div>
+      </div>
+    </section>
   );
 };
 

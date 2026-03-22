@@ -18,13 +18,13 @@ const HeroSection = () => {
               <img
                   src={profileAvatar}
                   alt="Rokaya Akter"
-                  className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 rounded-full mx-auto border border-accent/40 object-cover shadow-md"
+                  className="w-52 h-52 sm:w-48 sm:h-36 md:w-44 md:h-44 rounded-full mx-auto border border-accent/40 object-cover shadow-md"
               />
             </div>
 
             {/* Tagline */}
             <p className="text-accent font-semibold tracking-widest uppercase text-[10px] sm:text-xs mb-4 leading-relaxed">
-              Researcher · Machine Learning · Intelligent Systems Engineer
+              MSc Student · Computer Science & Electronic Engineering
             </p>
 
             {/* Name */}
@@ -36,21 +36,21 @@ const HeroSection = () => {
 
             {/* Research Domains */}
             <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-3 px-2">
-              Machine Learning · Cybersecurity · IoT Systems · Healthcare AI
+              Federated Learning · Cybersecurity · IoT · NLP
             </p>
 
             {/* Supporting Line */}
             <p className="text-muted-foreground/60 text-xs sm:text-sm max-w-md mx-auto leading-relaxed mb-2 px-2">
-              Designing and building real-world AI-driven systems
+              Privacy-preserving AI and intelligent systems research
             </p>
 
             {/* Achievements (RESPONSIVE FIXED) */}
             <div className="text-muted-foreground/70 text-xs sm:text-sm max-w-2xl mx-auto mb-8 flex flex-wrap justify-center gap-x-2 gap-y-1 px-2">
-              <span>10+ Peer-Reviewed Publications</span>
+              <span>7+ Peer-Reviewed Publications</span>
               <span className="hidden sm:inline">·</span>
-              <span>IEEE Best Paper Award</span>
+              <span>CSC Scholarship Recipient</span>
               <span className="hidden sm:inline">·</span>
-              <span>Applied AI Researcher</span>
+              <span>Research Assistant (2020–2023)</span>
             </div>
           </motion.div>
 
@@ -72,7 +72,7 @@ const HeroSection = () => {
 
             {/* CV */}
             <a
-                href="https://mdmosfikurrahman.github.io/cv"
+              href="/Resume.docx"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded font-medium hover:opacity-90 transition text-sm"

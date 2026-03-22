@@ -18,34 +18,33 @@ const AboutSection = () => {
             <div className="space-y-5 text-muted-foreground leading-relaxed text-[15px] text-justify [hyphens:auto] max-w-3xl tracking-[0.01em]">
 
               <p>
-                I am <strong className="text-foreground">Md. Mosfikur Rahman</strong>, a software engineer and researcher with a
-                B.Sc. in Computer Science and Engineering from{" "}
-                <strong className="text-foreground">Daffodil International University</strong> (CGPA: 3.83/4.00).
-                I also participated in the <strong className="text-foreground">Erasmus Mundus Exchange Program</strong> at
-                Adam Mickiewicz University, Poland.
+                I am <strong className="text-foreground">Rokaya Akter</strong>, an M.Sc. student in
+                <strong className="text-foreground"> Computer Science and Electronic Engineering</strong> at
+                <strong className="text-foreground"> Hunan University</strong> (expected June 2026).
+                My academic and research focus is on machine learning, federated learning, and cybersecurity.
               </p>
 
               <p>
-                My work focuses on applying machine learning and data-driven methods to real-world problems.
-                I have worked on cybersecurity, healthcare analytics, and intelligent systems, including
-                deep learning-based intrusion detection, pandemic data analysis, and smart infrastructure solutions.
+                I completed my B.Sc. in Computer Science and Engineering from
+                <strong className="text-foreground"> Shandong University of Technology</strong> in June 2023,
+                and then continued advanced study and research in AI-driven intelligent systems.
               </p>
 
               <p>
-                I have published <strong className="text-foreground">10+ peer-reviewed papers</strong> in venues including IEEE,
-                Springer, and Elsevier. My work emphasizes clarity, reproducibility, and practical impact.
-                I also serve as a reviewer for several international journals and conferences.
+                My publications cover chatbot emotional intelligence, surgical depth estimation, programming
+                education, and privacy-preserving federated intrusion detection for resource-constrained networks.
+                These works appear across IEEE, Springer, and peer-reviewed journals.
               </p>
 
               <p>
-                Alongside research, I have over <strong className="text-foreground">3.5 years of experience</strong> in software engineering,
-                where I have built scalable systems and real-world applications. This experience helps me
-                connect research ideas with practical implementation.
+                I served as a <strong className="text-foreground">Research Assistant at Shandong University of Technology</strong>
+                from 2020 to 2023, working on data handling, experiment design, academic writing,
+                and research ethics compliance.
               </p>
 
               <p>
-                I am particularly interested in advancing intelligent systems and developing solutions
-                that are both technically robust and practically meaningful.
+                I am passionate about advancing privacy-preserving AI and contributing to impactful
+                scholarly projects in machine learning, distributed systems, and secure intelligent networks.
               </p>
 
             </div>
@@ -55,27 +54,27 @@ const AboutSection = () => {
 
               <div className="border border-border rounded-lg p-4">
                 <p className="text-xs text-muted-foreground mb-1">Education</p>
-                <p className="font-semibold text-foreground text-sm">B.Sc. in CSE</p>
-                <p className="text-xs text-muted-foreground">Daffodil International University</p>
-                <p className="text-xs text-accent font-semibold mt-1">CGPA: 3.83 / 4.00</p>
+                <p className="font-semibold text-foreground text-sm">M.Sc. in CSEE</p>
+                <p className="text-xs text-muted-foreground">Hunan University, China</p>
+                <p className="text-xs text-accent font-semibold mt-1">Expected: June 2026</p>
               </div>
 
               <div className="border border-border rounded-lg p-4">
-                <p className="text-xs text-muted-foreground mb-1">Exchange</p>
-                <p className="font-semibold text-foreground text-sm">Erasmus Mundus</p>
-                <p className="text-xs text-muted-foreground">Adam Mickiewicz University, Poland</p>
+                <p className="text-xs text-muted-foreground mb-1">Undergraduate</p>
+                <p className="font-semibold text-foreground text-sm">B.Sc. in CSE</p>
+                <p className="text-xs text-muted-foreground">Shandong University of Technology</p>
               </div>
 
               <div className="border border-border rounded-lg p-4">
                 <p className="text-xs text-muted-foreground mb-1">Publications</p>
-                <p className="font-bold text-foreground text-2xl">10+</p>
-                <p className="text-xs text-muted-foreground">Peer-reviewed papers</p>
+                <p className="font-bold text-foreground text-2xl">7+</p>
+                <p className="text-xs text-muted-foreground">Peer-reviewed publications</p>
               </div>
 
               <div className="border border-border rounded-lg p-4">
                 <p className="text-xs text-muted-foreground mb-1">Experience</p>
-                <p className="font-bold text-foreground text-2xl">3.5+</p>
-                <p className="text-xs text-muted-foreground">Years in Software Engineering</p>
+                <p className="font-bold text-foreground text-2xl">3</p>
+                <p className="text-xs text-muted-foreground">Years as Research Assistant</p>
               </div>
 
             </div>

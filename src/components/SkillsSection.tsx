@@ -3,27 +3,27 @@ import { motion } from "framer-motion";
 const skillGroups = [
   {
     category: "Research Skills",
-    skills: ["Literature Review", "Academic Writing", "Statistical Analysis", "Experimental Design", "Peer Review", "Data Visualization"],
+    skills: ["Data Handling", "Experiment Design", "Academic Writing", "Ethical Compliance", "Literature Review"],
   },
   {
-    category: "Machine Learning & AI",
-    skills: ["Machine Learning", "Deep Learning (CNN, ANN)", "Feature Engineering", "Model Evaluation", "Data Processing", "NLP"],
+    category: "AI & Machine Learning",
+    skills: ["Machine Learning", "Deep Learning", "Federated Learning", "LLM Applications", "NLP"],
+  },
+  {
+    category: "Security Focus",
+    skills: ["Cybersecurity", "Intrusion Detection", "Privacy-Preserving Learning", "Encrypted Aggregation"],
   },
   {
     category: "Programming Languages",
-    skills: ["Java (8–21)", "Python", "C#", "JavaScript"],
+    skills: ["Python", "Java"],
   },
   {
-    category: "Frameworks & Tools",
-    skills: ["Spring Boot", "ASP.NET Core", "Spring Security", "JPA/JDBC", "Docker", "GraphQL", "Thymeleaf"],
+    category: "Data & Systems",
+    skills: ["Database Systems", "IoT Systems", "Distributed Systems"],
   },
   {
-    category: "Databases",
-    skills: ["Oracle", "PostgreSQL", "MySQL", "SQL Server", "Firebase"],
-  },
-  {
-    category: "Practices & Architecture",
-    skills: ["Microservices", "REST API Design", "CI/CD", "Git", "Agile", "System Architecture", "Security"],
+    category: "Applied Domains",
+    skills: ["Healthcare AI", "Chatbot Intelligence", "Programming Education Analytics"],
   },
 ];
 

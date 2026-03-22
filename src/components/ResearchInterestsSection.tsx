@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 import { Brain, Shield, Wifi, HeartPulse, BarChart3, Lightbulb } from "lucide-react";
 
 const interests = [
-  { icon: Brain, label: "Artificial Intelligence & Machine Learning", description: "Deep learning, CNNs, model evaluation, classification, and intelligent automation." },
-  { icon: BarChart3, label: "Data Science & Analytics", description: "Statistical modelling, feature engineering, data visualization, and behavioural analysis." },
-  { icon: Shield, label: "Cybersecurity", description: "Intrusion detection systems, chaotic encryption, network security using deep learning." },
-  { icon: Wifi, label: "Internet of Things (IoT)", description: "Smart-city infrastructure, sensor networks, autonomous monitoring, and MQTT protocols." },
-  { icon: HeartPulse, label: "Healthcare AI", description: "Pandemic modelling, mental health analytics, clinical prediction, and diagnostic tools." },
-  { icon: Lightbulb, label: "Educational Technology", description: "E-learning frameworks, hybrid pedagogy, and technology-enhanced education systems." },
+  { icon: Brain, label: "Federated Learning", description: "Client selection, secure aggregation, and resource-aware model training." },
+  { icon: Wifi, label: "Internet of Things (IoT)", description: "Learning and security methods for distributed and constrained IoT environments." },
+  { icon: Shield, label: "Security and Privacy", description: "Privacy-preserving intelligence, encrypted computation, and secure collaboration." },
+  { icon: BarChart3, label: "Cybersecurity", description: "Intrusion detection and adaptive cyber defense with machine learning models." },
+  { icon: Lightbulb, label: "Large Language Models", description: "Generative-AI guided security and intelligent decision support systems." },
+  { icon: HeartPulse, label: "AI & NLP", description: "Applied AI/NLP systems including chatbot intelligence and language-aware modeling." },
 ];
 
 const ResearchInterestsSection = () => {
