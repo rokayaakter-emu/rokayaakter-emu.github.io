@@ -112,127 +112,122 @@ const years: YearBlock[] = [
   },
 ];
 
-const typeConfig: Record<string, { label: string; borderClass: string }> = {
-  education: { label: "Education", borderClass: "border-l-primary/40" },
-  "publication-journal": { label: "Journal", borderClass: "border-l-accent" },
-  "publication-conference": { label: "Conference", borderClass: "border-l-navy-light" },
-  career: { label: "Career", borderClass: "border-l-primary/25" },
-  award: { label: "Award", borderClass: "border-l-gold-deep" },
-  future: { label: "Future", borderClass: "border-l-accent" },
+const typeStyle: Record<TimelineEntry["type"], string> = {
+  education: "bg-primary/12 text-primary",
+  "publication-journal": "bg-accent/15 text-accent",
+  "publication-conference": "bg-secondary text-secondary-foreground",
+  career: "bg-primary/10 text-primary",
+  award: "bg-gold-muted text-gold-deep",
+  future: "bg-accent/12 text-accent",
 };
 
-const dotConfig: Record<string, string> = {
-  education: "bg-primary/40",
-  "publication-journal": "bg-accent",
-  "publication-conference": "bg-navy-light",
-  career: "bg-primary/25",
-  award: "bg-gold-deep",
-  future: "bg-accent",
-};
-
-const labelConfig: Record<string, string> = {
-  education: "text-primary/70 bg-primary/5",
-  "publication-journal": "text-gold-deep bg-gold-muted",
-  "publication-conference": "text-navy-light bg-primary/5",
-  career: "text-muted-foreground bg-secondary",
-  award: "text-gold-deep bg-gold-muted",
-  future: "text-accent bg-gold-muted",
+const typeLabel: Record<TimelineEntry["type"], string> = {
+  education: "Education",
+  "publication-journal": "Journal",
+  "publication-conference": "Conference",
+  career: "Career",
+  award: "Award",
+  future: "Future",
 };
 
 const YearbookSection = () => {
   return (
-    <section id="journey" className="section-padding bg-section-alt">
-      <div className="max-w-3xl mx-auto">
+    <section id="journey" className="section-padding bg-section-alt relative overflow-hidden">
+      <div className="aurora-bg">
+        <div className="aurora-orb w-72 h-72 -left-20 top-14 bg-accent/18" />
+        <div className="aurora-orb w-80 h-80 -right-20 bottom-10 bg-primary/16" style={{ animationDelay: "1.3s" }} />
+      </div>
+
+      <div className="max-w-5xl mx-auto relative">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-14"
+          className="mb-12"
         >
           <p className="section-label">Yearbook</p>
           <h2 className="section-title">Academic Journey</h2>
-          <p className="text-muted-foreground text-sm max-w-2xl">
-            A timeline of research, education, publications, and scholarship milestones.
+          <p className="text-muted-foreground text-sm md:text-base max-w-3xl">
+            A curated timeline of research milestones, publications, academic achievements, and future direction.
           </p>
         </motion.div>
 
-        <div>
-          {years.map((yearBlock, yi) => (
+        <div className="space-y-6">
+          {years.map((yearBlock, yearIndex) => (
             <motion.div
               key={yearBlock.year}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: yi * 0.03 }}
-              className="mb-12"
+              className="rounded-2xl border border-border bg-card/88 backdrop-blur-sm p-4 sm:p-5 md:p-6 soft-spotlight"
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.4, delay: yearIndex * 0.04 }}
             >
-              <div className="mb-5">
-                <span className="font-display text-4xl md:text-5xl font-bold text-primary/40 select-none">{yearBlock.year}</span>
-              </div>
+              <div className="grid md:grid-cols-[96px_1fr] gap-4 md:gap-6">
+                <div>
+                  <div className="rounded-xl border border-primary/20 bg-primary/10 px-3 py-2 text-center md:sticky md:top-24">
+                    <p className="font-display text-2xl font-bold text-primary">{yearBlock.year}</p>
+                  </div>
+                </div>
 
-              <div className="space-y-0 border-l border-border ml-3">
-                {yearBlock.entries.map((entry, ei) => {
-                  const cfg = typeConfig[entry.type];
-                  return (
-                    <motion.div
-                      key={ei}
-                      className={`relative pl-7 py-3 border-l-2 -ml-px ${cfg.borderClass}`}
-                      initial={{ opacity: 0, x: -6 }}
+                <div className="space-y-3">
+                  {yearBlock.entries.map((entry, entryIndex) => (
+                    <motion.article
+                      key={`${yearBlock.year}-${entryIndex}`}
+                      className="rounded-xl border border-border bg-background/75 px-4 py-3.5 elevated-card tilt-hover"
+                      initial={{ opacity: 0, x: -8 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.25, delay: ei * 0.03 }}
+                      whileHover={{ y: -2 }}
+                      transition={{ duration: 0.28, delay: entryIndex * 0.04 }}
                     >
-                      <div className={`absolute -left-[5px] top-4 w-2 h-2 rounded-full ${dotConfig[entry.type]}`} />
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className={`text-[10px] uppercase tracking-[0.12em] font-semibold px-2 py-1 rounded-full ${typeStyle[entry.type]}`}>
+                          {typeLabel[entry.type]}
+                        </span>
+                      </div>
 
-                      <span className={`inline-block text-[10px] font-semibold px-2 py-0.5 rounded-sm tracking-wider uppercase ${labelConfig[entry.type]}`}>
-                        {cfg.label}
-                      </span>
+                      <h3 className="text-sm md:text-[15px] font-semibold text-foreground leading-snug">{entry.title}</h3>
 
-                      <h4 className="text-[14px] font-semibold text-foreground leading-snug mt-1">{entry.title}</h4>
-
-                      {entry.subtitle && <p className="text-xs text-muted-foreground mt-0.5">{entry.subtitle}</p>}
-
-                      {entry.detail && <p className="text-[13px] text-muted-foreground/80 leading-relaxed mt-1.5">{entry.detail}</p>}
+                      {entry.subtitle && <p className="text-xs text-muted-foreground mt-1">{entry.subtitle}</p>}
+                      {entry.detail && <p className="text-xs md:text-[13px] text-muted-foreground/90 leading-relaxed mt-1.5">{entry.detail}</p>}
 
                       {entry.doi && (
                         <a
                           href={`https://doi.org/${entry.doi}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-block text-[11px] text-accent hover:text-gold-deep transition-colors mt-1 font-medium"
+                          className="inline-block text-[11px] text-accent hover:underline mt-2 font-medium"
                         >
                           DOI: {entry.doi} ↗
                         </a>
                       )}
-                    </motion.div>
-                  );
-                })}
+                    </motion.article>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
 
         <motion.div
-          className="border-t border-border pt-10 mt-4"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          className="grid grid-cols-2 md:grid-cols-5 gap-3 mt-10"
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <div className="grid grid-cols-5 gap-2">
-            {[
-              { n: "7+", l: "Publications" },
-              { n: "3", l: "Journal Papers" },
-              { n: "4", l: "Conference Papers" },
-              { n: "2", l: "Working Papers" },
-              { n: "3", l: "Major Awards" },
-            ].map((s) => (
-              <div key={s.l} className="text-center py-3">
-                <p className="font-display text-xl font-bold text-foreground">{s.n}</p>
-                <p className="text-[10px] text-muted-foreground">{s.l}</p>
-              </div>
-            ))}
-          </div>
+          {[
+            { n: "7+", l: "Publications" },
+            { n: "3", l: "Journal Papers" },
+            { n: "4", l: "Conference Papers" },
+            { n: "2", l: "Working Papers" },
+            { n: "3", l: "Major Awards" },
+          ].map((stat) => (
+            <div key={stat.l} className="rounded-xl border border-border bg-card/88 backdrop-blur-sm py-3 text-center elevated-card">
+              <p className="font-display text-xl font-bold text-foreground">{stat.n}</p>
+              <p className="text-[11px] text-muted-foreground">{stat.l}</p>
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>

@@ -12,8 +12,12 @@ const interests = [
 
 const ResearchInterestsSection = () => {
   return (
-    <section className="section-padding bg-section-alt">
-      <div className="max-w-5xl mx-auto">
+    <section className="section-padding bg-section-alt relative overflow-hidden">
+      <div className="aurora-bg">
+        <div className="aurora-orb w-72 h-72 -left-20 top-0 bg-primary/20" />
+        <div className="aurora-orb w-72 h-72 -right-20 bottom-6 bg-accent/20" style={{ animationDelay: "1.5s" }} />
+      </div>
+      <div className="max-w-5xl mx-auto relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -28,9 +32,10 @@ const ResearchInterestsSection = () => {
           {interests.map((item, i) => (
             <motion.div
               key={item.label}
-              className="border border-border bg-card rounded-lg p-5 hover:border-accent/30 transition-colors"
+              className="elevated-card shimmer-border tilt-hover rounded-xl p-5 bg-card/90 backdrop-blur-sm"
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -4 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: i * 0.06 }}
             >

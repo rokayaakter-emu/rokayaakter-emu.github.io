@@ -67,9 +67,10 @@ const publications: Publication[] = [
 const renderPub = (pub: Publication, i: number) => (
   <motion.li
     key={`${pub.title}-${pub.year}`}
-    className="pl-5 py-4 border-l border-border hover:border-accent transition-all"
+    className="elevated-card shimmer-border tilt-hover rounded-xl p-5 bg-card/90 backdrop-blur-sm"
     initial={{ opacity: 0, x: -10 }}
     whileInView={{ opacity: 1, x: 0 }}
+    whileHover={{ y: -3 }}
     viewport={{ once: true }}
     transition={{ duration: 0.3, delay: i * 0.04 }}
   >
@@ -99,9 +100,13 @@ const PublicationsSection = () => {
   const conferences = publications.filter((item) => item.type === "conference");
 
   return (
-    <section id="publications" className="section-padding max-w-5xl mx-auto">
+    <section id="publications" className="section-padding max-w-5xl mx-auto relative overflow-hidden">
+      <div className="aurora-bg">
+        <div className="aurora-orb w-64 h-64 -left-16 top-10 bg-accent/18" />
+        <div className="aurora-orb w-72 h-72 -right-20 bottom-0 bg-primary/16" style={{ animationDelay: "1.2s" }} />
+      </div>
       <motion.div
-        className="mb-14"
+        className="mb-14 relative"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -113,7 +118,7 @@ const PublicationsSection = () => {
         </p>
       </motion.div>
 
-      <div className="space-y-12">
+      <div className="space-y-12 relative">
         <div>
           <h3 className="font-display text-lg font-semibold text-foreground mb-6 pb-2 border-b border-border">
             Journal Articles

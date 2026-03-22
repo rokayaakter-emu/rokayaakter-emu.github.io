@@ -2,8 +2,13 @@ import { motion } from "framer-motion";
 
 const AboutSection = () => {
   return (
-      <section id="about" className="section-padding max-w-6xl mx-auto px-6">
+      <section id="about" className="section-padding max-w-6xl mx-auto px-6 relative overflow-hidden">
+        <div className="aurora-bg">
+          <div className="aurora-orb w-72 h-72 -left-20 top-8 bg-accent/20" />
+          <div className="aurora-orb w-72 h-72 -right-20 bottom-6 bg-primary/20" style={{ animationDelay: "1.3s" }} />
+        </div>
         <motion.div
+            className="relative"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -52,26 +57,26 @@ const AboutSection = () => {
             {/* RIGHT SIDE CARDS */}
             <div className="space-y-4">
 
-              <div className="border border-border rounded-lg p-4">
+              <div className="elevated-card shimmer-border tilt-hover rounded-xl p-4 bg-card/90 backdrop-blur-sm">
                 <p className="text-xs text-muted-foreground mb-1">Education</p>
                 <p className="font-semibold text-foreground text-sm">M.Sc. in CSEE</p>
                 <p className="text-xs text-muted-foreground">Hunan University, China</p>
                 <p className="text-xs text-accent font-semibold mt-1">Expected: June 2026</p>
               </div>
 
-              <div className="border border-border rounded-lg p-4">
+              <div className="elevated-card shimmer-border tilt-hover rounded-xl p-4 bg-card/90 backdrop-blur-sm">
                 <p className="text-xs text-muted-foreground mb-1">Undergraduate</p>
                 <p className="font-semibold text-foreground text-sm">B.Sc. in CSE</p>
                 <p className="text-xs text-muted-foreground">Shandong University of Technology</p>
               </div>
 
-              <div className="border border-border rounded-lg p-4">
+              <div className="elevated-card shimmer-border tilt-hover rounded-xl p-4 bg-card/90 backdrop-blur-sm">
                 <p className="text-xs text-muted-foreground mb-1">Publications</p>
                 <p className="font-bold text-foreground text-2xl">7+</p>
                 <p className="text-xs text-muted-foreground">Peer-reviewed publications</p>
               </div>
 
-              <div className="border border-border rounded-lg p-4">
+              <div className="elevated-card shimmer-border tilt-hover rounded-xl p-4 bg-card/90 backdrop-blur-sm">
                 <p className="text-xs text-muted-foreground mb-1">Experience</p>
                 <p className="font-bold text-foreground text-2xl">3</p>
                 <p className="text-xs text-muted-foreground">Years as Research Assistant</p>

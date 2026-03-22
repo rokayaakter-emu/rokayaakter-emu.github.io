@@ -6,54 +6,54 @@
 
 @layer base {
   :root {
-    --background: 40 25% 97%;
-    --foreground: 222 35% 12%;
+    --background: 220 35% 98%;
+    --foreground: 228 34% 14%;
 
-    --card: 40 20% 99%;
-    --card-foreground: 222 35% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 228 34% 14%;
 
-    --popover: 40 20% 99%;
-    --popover-foreground: 222 35% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 228 34% 14%;
 
-    --primary: 222 45% 16%;
-    --primary-foreground: 40 25% 97%;
+    --primary: 232 42% 23%;
+    --primary-foreground: 220 35% 98%;
 
-    --secondary: 222 15% 93%;
-    --secondary-foreground: 222 35% 12%;
+    --secondary: 228 30% 95%;
+    --secondary-foreground: 228 34% 18%;
 
-    --muted: 222 12% 92%;
-    --muted-foreground: 222 10% 42%;
+    --muted: 228 22% 94%;
+    --muted-foreground: 228 12% 44%;
 
-    --accent: 42 75% 48%;
-    --accent-foreground: 222 45% 12%;
+    --accent: 258 82% 62%;
+    --accent-foreground: 240 23% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 222 15% 88%;
-    --input: 222 15% 88%;
-    --ring: 222 45% 16%;
+    --border: 228 20% 88%;
+    --input: 228 20% 88%;
+    --ring: 258 82% 62%;
 
     --radius: 0.5rem;
 
     /* Custom tokens */
-    --section-alt: 40 18% 95%;
-    --gold: 42 75% 48%;
-    --gold-muted: 42 40% 92%;
-    --gold-deep: 38 65% 38%;
-    --navy: 222 45% 16%;
-    --navy-light: 222 30% 28%;
-    --divider: 222 15% 85%;
+    --section-alt: 225 34% 96%;
+    --gold: 262 77% 62%;
+    --gold-muted: 258 60% 94%;
+    --gold-deep: 252 45% 42%;
+    --navy: 232 42% 23%;
+    --navy-light: 232 32% 34%;
+    --divider: 228 18% 86%;
 
     /* Yearbook color-coded lines */
-    --line-education: 222 55% 50%;
-    --line-journal: 42 75% 48%;
-    --line-conference: 222 35% 35%;
-    --line-career: 222 20% 55%;
-    --line-award: 38 80% 50%;
-    --line-activity: 222 15% 60%;
-    --line-international: 195 55% 42%;
-    --line-future: 222 45% 16%;
+    --line-education: 232 55% 52%;
+    --line-journal: 258 82% 62%;
+    --line-conference: 232 34% 38%;
+    --line-career: 232 18% 58%;
+    --line-award: 262 72% 58%;
+    --line-activity: 228 14% 62%;
+    --line-international: 202 65% 46%;
+    --line-future: 232 42% 23%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -66,32 +66,32 @@
   }
 
   .dark {
-    --background: 222 35% 8%;
-    --foreground: 40 15% 92%;
-    --card: 222 30% 11%;
-    --card-foreground: 40 15% 92%;
-    --popover: 222 30% 11%;
-    --popover-foreground: 40 15% 92%;
-    --primary: 40 15% 92%;
-    --primary-foreground: 222 35% 8%;
-    --secondary: 222 20% 16%;
-    --secondary-foreground: 40 15% 92%;
-    --muted: 222 20% 16%;
-    --muted-foreground: 222 10% 55%;
-    --accent: 42 70% 50%;
-    --accent-foreground: 222 35% 8%;
+    --background: 230 30% 10%;
+    --foreground: 240 20% 94%;
+    --card: 230 24% 13%;
+    --card-foreground: 240 20% 94%;
+    --popover: 230 24% 13%;
+    --popover-foreground: 240 20% 94%;
+    --primary: 240 20% 94%;
+    --primary-foreground: 230 30% 10%;
+    --secondary: 232 18% 18%;
+    --secondary-foreground: 240 20% 94%;
+    --muted: 232 18% 18%;
+    --muted-foreground: 230 12% 67%;
+    --accent: 258 82% 66%;
+    --accent-foreground: 240 23% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 222 20% 18%;
-    --input: 222 20% 18%;
-    --ring: 42 70% 50%;
-    --section-alt: 222 30% 10%;
-    --gold: 42 70% 50%;
-    --gold-muted: 42 25% 18%;
-    --gold-deep: 38 60% 42%;
-    --navy: 222 25% 85%;
-    --navy-light: 222 20% 70%;
-    --divider: 222 20% 20%;
+    --border: 232 18% 23%;
+    --input: 232 18% 23%;
+    --ring: 258 82% 66%;
+    --section-alt: 232 24% 12%;
+    --gold: 258 82% 66%;
+    --gold-muted: 256 26% 20%;
+    --gold-deep: 252 56% 66%;
+    --navy: 240 20% 94%;
+    --navy-light: 235 24% 76%;
+    --divider: 232 18% 24%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -144,5 +144,100 @@
 
   .section-desc {
     @apply text-muted-foreground text-base max-w-2xl mb-10 leading-relaxed;
+  }
+
+  .glass-panel {
+    @apply border border-border/70 bg-card/80 backdrop-blur-md shadow-sm;
+  }
+
+  .elevated-card {
+    @apply border border-border bg-card shadow-sm hover:shadow-md transition-all duration-300;
+  }
+
+  .tilt-hover {
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+
+  .tilt-hover:hover {
+    transform: perspective(1200px) rotateX(1.4deg) rotateY(-1.4deg) translateY(-2px);
+  }
+
+  .aurora-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .aurora-orb {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(60px);
+    opacity: 0.35;
+    animation: float-soft 10s ease-in-out infinite;
+  }
+
+  .gradient-heading {
+    @apply bg-gradient-to-r from-foreground via-accent to-foreground bg-clip-text text-transparent;
+    background-size: 200% 200%;
+    animation: text-shine 5s ease-in-out infinite;
+  }
+
+  .shimmer-border {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .shimmer-border::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(120deg, hsl(var(--border)), hsl(var(--accent) / 0.45), hsl(var(--border)));
+    background-size: 200% 200%;
+    animation: border-shimmer 4s linear infinite;
+    z-index: -1;
+  }
+
+  .research-grid-bg {
+    background-image:
+      radial-gradient(circle at 20% 10%, hsl(var(--accent) / 0.14), transparent 34%),
+      radial-gradient(circle at 80% 85%, hsl(var(--primary) / 0.12), transparent 38%);
+  }
+
+  .soft-spotlight {
+    box-shadow:
+      0 10px 35px hsl(var(--primary) / 0.08),
+      0 2px 10px hsl(var(--accent) / 0.08);
+  }
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -18px, 0) scale(1.04);
+  }
+}
+
+@keyframes text-shine {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes border-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
   }
 }

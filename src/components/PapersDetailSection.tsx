@@ -23,7 +23,7 @@ const papers: PaperDetail[] = [
     year: 2026,
     type: "journal",
     summary: "Proposes a federated intrusion-detection framework tailored for resource-constrained environments.",
-    contribution: "Combines fair client participation and encrypted aggregation to improve both security and practical deployment feasibility.",
+    contribution: "Combines fair client participation and encrypted aggregation to improve both security and deployment feasibility.",
     topics: ["Federated Learning", "Intrusion Detection", "Security", "Privacy"],
   },
   {
@@ -34,7 +34,7 @@ const papers: PaperDetail[] = [
     year: 2025,
     type: "journal",
     summary: "Introduces a generative-AI-guided framework for adaptive federated cybersecurity.",
-    contribution: "Explores self-optimizing threat intelligence under distributed and privacy-aware settings.",
+    contribution: "Explores self-optimizing threat intelligence under distributed privacy-aware settings.",
     topics: ["Generative AI", "Federated Cybersecurity", "Threat Detection"],
   },
   {
@@ -57,7 +57,7 @@ const papers: PaperDetail[] = [
     year: 2023,
     type: "conference",
     summary: "Applies deep learning depth estimation to improve perception in minimally invasive surgery.",
-    contribution: "Demonstrates how MiDaS-based depth prediction can support safer and more precise surgical workflows.",
+    contribution: "Shows how MiDaS-based depth prediction can support safer and more precise surgical workflows.",
     topics: ["Healthcare AI", "Computer Vision", "Deep Learning"],
     doi: "10.1007/978-3-031-70687-5_5",
   },
@@ -65,36 +65,42 @@ const papers: PaperDetail[] = [
 
 const PaperDetailCard = ({ paper, index }: { paper: PaperDetail; index: number }) => (
   <motion.article
-    className="border border-border rounded-xl p-6 md:p-7 bg-background hover:shadow-lg transition-all duration-300"
+    className="elevated-card shimmer-border rounded-2xl p-5 md:p-6 tilt-hover bg-card/90 backdrop-blur-sm"
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.4, delay: index * 0.05 }}
+    viewport={{ once: true, margin: "-120px" }}
+    transition={{ duration: 0.45, delay: index * 0.08 }}
+    whileHover={{ y: -5 }}
   >
-    <div className="mb-4">
-      <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
-        {paper.type === "journal" ? "Journal Article" : "Conference Paper"} · {paper.year}
-      </p>
-
-      <h3 className="text-lg md:text-xl font-semibold text-foreground mt-1 leading-snug">{paper.title}</h3>
-      <p className="text-xs text-muted-foreground mt-2">{paper.authors}</p>
-      <p className="text-xs italic text-muted-foreground">{paper.venue}</p>
+    <div className="flex items-center justify-between gap-3 mb-3">
+      <span
+        className={`text-[10px] px-2.5 py-1 rounded-full font-medium uppercase tracking-wide ${
+          paper.type === "journal" ? "bg-accent/15 text-accent" : "bg-secondary text-muted-foreground"
+        }`}
+      >
+        {paper.type === "journal" ? "Journal" : "Conference"}
+      </span>
+      <span className="text-xs text-muted-foreground">{paper.year}</span>
     </div>
 
-    <div className="grid md:grid-cols-2 gap-4 mb-4">
+    <h3 className="text-base md:text-lg font-semibold text-foreground leading-snug min-h-[3.6rem]">{paper.title}</h3>
+    <p className="text-xs text-muted-foreground mt-2 leading-relaxed">{paper.authors}</p>
+    <p className="text-xs italic text-muted-foreground mt-1">{paper.venue}</p>
+
+    <div className="grid gap-3 mt-4 pt-4 border-t border-border">
       <div>
-        <p className="text-xs font-semibold text-foreground mb-1">Summary</p>
+        <p className="text-[11px] uppercase tracking-[0.12em] text-muted-foreground mb-1">Summary</p>
         <p className="text-sm text-foreground/90 leading-relaxed">{paper.summary}</p>
       </div>
       <div>
-        <p className="text-xs font-semibold text-foreground mb-1">Key Contribution</p>
+        <p className="text-[11px] uppercase tracking-[0.12em] text-muted-foreground mb-1">Contribution</p>
         <p className="text-sm text-foreground/90 leading-relaxed">{paper.contribution}</p>
       </div>
     </div>
 
-    <div className="flex flex-wrap gap-2 mb-4">
+    <div className="flex flex-wrap gap-2 mt-4">
       {paper.topics.map((topic) => (
-        <span key={topic} className="text-[10px] px-2 py-1 rounded bg-muted text-muted-foreground">
+        <span key={topic} className="text-[10px] px-2 py-1 rounded-md bg-secondary text-muted-foreground">
           {topic}
         </span>
       ))}
@@ -105,9 +111,9 @@ const PaperDetailCard = ({ paper, index }: { paper: PaperDetail; index: number }
         href={`https://doi.org/${paper.doi}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-1 text-xs text-accent hover:underline"
+        className="inline-flex items-center gap-1.5 mt-4 text-xs font-medium text-accent hover:underline"
       >
-        <ExternalLink className="w-3 h-3" />
+        <ExternalLink className="w-3.5 h-3.5" />
         View Publication
       </a>
     )}
@@ -119,40 +125,48 @@ const PapersDetailSection = () => {
   const conferences = papers.filter((p) => p.type === "conference");
 
   return (
-    <section id="research" className="section-padding bg-section-alt">
-      <div className="max-w-5xl mx-auto">
+    <section id="research" className="section-padding bg-section-alt relative overflow-hidden research-grid-bg">
+      <div className="aurora-bg">
+        <div className="aurora-orb w-80 h-80 -left-12 top-16 bg-primary/30" style={{ animationDelay: "0.8s" }} />
+        <div className="aurora-orb w-72 h-72 -right-10 bottom-4 bg-accent/35" style={{ animationDelay: "1.6s" }} />
+      </div>
+
+      <div className="relative max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.55 }}
+          className="mb-10"
         >
           <p className="section-label">Research Papers</p>
-          <h2 className="section-title">Featured Contributions</h2>
-          <p className="section-desc">
-            A focused selection of publications spanning federated learning, cybersecurity, NLP, and healthcare AI.
+          <h2 className="section-title gradient-heading">Featured Contributions</h2>
+          <p className="section-desc max-w-3xl mb-0">
+            A refined, publication-centric view with clear hierarchy, balanced spacing, and modern motion details.
           </p>
         </motion.div>
 
         <div className="space-y-12">
           <div>
-            <h3 className="font-display text-xl font-semibold text-foreground mb-6 pb-2 border-b border-border">
-              Journal Articles ({journals.length})
-            </h3>
-            <div className="space-y-6">
-              {journals.map((paper, i) => (
-                <PaperDetailCard key={paper.id} paper={paper} index={i} />
+            <div className="flex items-center justify-between mb-5">
+              <h3 className="font-display text-xl font-semibold text-foreground">Journal Articles</h3>
+              <span className="text-xs px-2.5 py-1 rounded-full bg-accent/15 text-accent">{journals.length} papers</span>
+            </div>
+            <div className="grid md:grid-cols-2 gap-5 lg:gap-6">
+              {journals.map((paper, index) => (
+                <PaperDetailCard key={paper.id} paper={paper} index={index} />
               ))}
             </div>
           </div>
 
           <div>
-            <h3 className="font-display text-xl font-semibold text-foreground mb-6 pb-2 border-b border-border">
-              Conference Papers ({conferences.length})
-            </h3>
-            <div className="space-y-6">
-              {conferences.map((paper, i) => (
-                <PaperDetailCard key={paper.id} paper={paper} index={i} />
+            <div className="flex items-center justify-between mb-5">
+              <h3 className="font-display text-xl font-semibold text-foreground">Conference Papers</h3>
+              <span className="text-xs px-2.5 py-1 rounded-full bg-secondary text-muted-foreground">{conferences.length} papers</span>
+            </div>
+            <div className="grid md:grid-cols-2 gap-5 lg:gap-6">
+              {conferences.map((paper, index) => (
+                <PaperDetailCard key={paper.id} paper={paper} index={index + journals.length} />
               ))}
             </div>
           </div>

@@ -22,8 +22,12 @@ const achievements = [
 
 const AchievementsSection = () => {
   return (
-    <section id="achievements" className="section-padding bg-section-alt">
-      <div className="max-w-5xl mx-auto">
+    <section id="achievements" className="section-padding bg-section-alt relative overflow-hidden">
+      <div className="aurora-bg">
+        <div className="aurora-orb w-64 h-64 -left-16 top-8 bg-accent/18" />
+        <div className="aurora-orb w-72 h-72 -right-20 bottom-10 bg-primary/16" style={{ animationDelay: "1.1s" }} />
+      </div>
+      <div className="max-w-5xl mx-auto relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -38,11 +42,12 @@ const AchievementsSection = () => {
           {achievements.map((a, i) => (
             <motion.div
               key={a.title}
-              className={`rounded-lg p-5 border transition-all duration-300 ${
-                a.highlight ? "bg-card border-accent/40 md:col-span-2 shadow-sm" : "bg-card border-border hover:border-accent/30"
+              className={`rounded-xl p-5 border transition-all duration-300 tilt-hover ${
+                a.highlight ? "elevated-card shimmer-border md:col-span-2 bg-card/90 backdrop-blur-sm" : "elevated-card shimmer-border bg-card/90 backdrop-blur-sm"
               }`}
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -4 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: i * 0.06 }}
             >

@@ -25,12 +25,12 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/95 backdrop-blur-sm border-b border-border"
-          : "bg-background border-b border-transparent"
+          ? "bg-background/85 backdrop-blur-xl border-b border-border shadow-[0_4px_20px_hsl(var(--primary)/0.08)]"
+          : "bg-transparent border-b border-transparent"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-14">
-        <a href="#" className="font-display font-bold text-base text-foreground">
+        <a href="#" className="font-display font-bold text-base gradient-heading">
           Rokaya Akter
         </a>
 
@@ -39,7 +39,7 @@ const Navbar = () => {
             <a
               key={l.href}
               href={l.href}
-              className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors tracking-wide"
             >
               {l.label}
             </a>

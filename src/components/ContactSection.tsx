@@ -3,9 +3,14 @@ import { Mail, Phone, Globe } from "lucide-react";
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 border-t border-border">
-      <div className="max-w-3xl mx-auto text-center">
+    <section id="contact" className="py-20 px-4 sm:px-6 border-t border-border relative overflow-hidden">
+      <div className="aurora-bg">
+        <div className="aurora-orb w-72 h-72 -left-24 top-6 bg-accent/22" />
+        <div className="aurora-orb w-80 h-80 -right-28 bottom-0 bg-primary/20" style={{ animationDelay: "1.2s" }} />
+      </div>
+      <div className="max-w-3xl mx-auto text-center relative">
         <motion.div
+          className="elevated-card shimmer-border tilt-hover rounded-2xl p-6 sm:p-8 bg-card/90 backdrop-blur-md"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
