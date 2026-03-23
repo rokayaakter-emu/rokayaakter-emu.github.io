@@ -7,6 +7,7 @@ type Publication = {
   year: number;
   type: "journal" | "conference";
   doi?: string;
+  link?: string;
 };
 
 const publications: Publication[] = [
@@ -16,6 +17,7 @@ const publications: Publication[] = [
     venue: "Cluster Computing, 29(3), 164",
     year: 2026,
     type: "journal",
+    link: "https://link.springer.com/article/10.1007/s10586-025-05905-w",
   },
   {
     authors: "Akter, R., Rishat, M. A. S. A., Singh, S., Singh, A., & Naizheng, B.",
@@ -23,6 +25,7 @@ const publications: Publication[] = [
     venue: "Journal of Hunan University Natural Sciences, 52(12)",
     year: 2025,
     type: "journal",
+    link: "https://doi.org/10.55463/issn.1674-2974.52.12.1",
   },
   {
     authors: "Rokaya, A., Islam, S. M. T., Zhang, H., Sun, L., Zhu, M., & Zhao, L.",
@@ -46,6 +49,7 @@ const publications: Publication[] = [
     venue: "Journal of Hunan University Natural Sciences, 52(11)",
     year: 2025,
     type: "journal",
+    link: "https://doi.org/10.55463/issn.1674-2974.52.11.1",
   },
   {
     authors: "Quadir, B., Mostafa, K., Yang, J. C., Shen, J., & Akter, R.",
@@ -64,6 +68,13 @@ const publications: Publication[] = [
   },
 ];
 
+const getPaperLink = (paper: Publication) =>
+  paper.link
+    ? paper.link
+    : paper.doi
+    ? `https://doi.org/${paper.doi}`
+    : `https://scholar.google.com/scholar?q=${encodeURIComponent(paper.title)}`;
+
 const renderPub = (pub: Publication, i: number) => (
   <motion.li
     key={`${pub.title}-${pub.year}`}
@@ -74,7 +85,14 @@ const renderPub = (pub: Publication, i: number) => (
     viewport={{ once: true }}
     transition={{ duration: 0.3, delay: i * 0.04 }}
   >
-    <p className="text-sm md:text-base font-medium text-foreground leading-relaxed">{pub.title}</p>
+    <a
+      href={getPaperLink(pub)}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-sm md:text-base font-medium text-foreground leading-relaxed hover:text-accent transition-colors"
+    >
+      {pub.title}
+    </a>
 
     <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{pub.authors}</p>
 
@@ -82,16 +100,14 @@ const renderPub = (pub: Publication, i: number) => (
       <span className="italic">{pub.venue}</span>, {pub.year}
     </p>
 
-    {pub.doi && (
-      <a
-        href={`https://doi.org/${pub.doi}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-xs text-accent hover:underline mt-2 inline-block"
-      >
-        View Paper →
-      </a>
-    )}
+    <a
+      href={getPaperLink(pub)}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-xs text-accent hover:underline mt-2 inline-block"
+    >
+      View Paper →
+    </a>
   </motion.li>
 );
 

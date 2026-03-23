@@ -1,12 +1,10 @@
 import {
   require_react_dom
-} from "./chunk-SO43GD6T.js";
+} from "./chunk-M5IPRDD5.js";
 import {
+  __toESM,
   require_react
-} from "./chunk-HQJSOCRU.js";
-import {
-  __toESM
-} from "./chunk-RDKGUBC5.js";
+} from "./chunk-TJW4JA7A.js";
 
 // node_modules/react-router-dom/dist/index.js
 var React2 = __toESM(require_react());

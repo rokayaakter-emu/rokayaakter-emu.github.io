@@ -12,6 +12,7 @@ interface PaperDetail {
   contribution: string;
   topics: string[];
   doi?: string;
+  link?: string;
 }
 
 const papers: PaperDetail[] = [
@@ -25,6 +26,7 @@ const papers: PaperDetail[] = [
     summary: "Proposes a federated intrusion-detection framework tailored for resource-constrained environments.",
     contribution: "Combines fair client participation and encrypted aggregation to improve both security and deployment feasibility.",
     topics: ["Federated Learning", "Intrusion Detection", "Security", "Privacy"],
+    link: "https://link.springer.com/article/10.1007/s10586-025-05905-w",
   },
   {
     id: "genai-sentinel-2025",
@@ -36,6 +38,7 @@ const papers: PaperDetail[] = [
     summary: "Introduces a generative-AI-guided framework for adaptive federated cybersecurity.",
     contribution: "Explores self-optimizing threat intelligence under distributed privacy-aware settings.",
     topics: ["Generative AI", "Federated Cybersecurity", "Threat Detection"],
+    link: "https://doi.org/10.55463/issn.1674-2974.52.12.1",
   },
   {
     id: "chatbot-ei-2022",
@@ -63,6 +66,13 @@ const papers: PaperDetail[] = [
   },
 ];
 
+const getPaperLink = (paper: PaperDetail) =>
+  paper.link
+    ? paper.link
+    : paper.doi
+    ? `https://doi.org/${paper.doi}`
+    : `https://scholar.google.com/scholar?q=${encodeURIComponent(paper.title)}`;
+
 const PaperDetailCard = ({ paper, index }: { paper: PaperDetail; index: number }) => (
   <motion.article
     className="elevated-card shimmer-border rounded-2xl p-5 md:p-6 tilt-hover bg-card/90 backdrop-blur-sm"
@@ -83,7 +93,14 @@ const PaperDetailCard = ({ paper, index }: { paper: PaperDetail; index: number }
       <span className="text-xs text-muted-foreground">{paper.year}</span>
     </div>
 
-    <h3 className="text-base md:text-lg font-semibold text-foreground leading-snug min-h-[3.6rem]">{paper.title}</h3>
+    <a
+      href={getPaperLink(paper)}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-base md:text-lg font-semibold text-foreground leading-snug min-h-[3.6rem] hover:text-accent transition-colors block"
+    >
+      {paper.title}
+    </a>
     <p className="text-xs text-muted-foreground mt-2 leading-relaxed">{paper.authors}</p>
     <p className="text-xs italic text-muted-foreground mt-1">{paper.venue}</p>
 
@@ -106,17 +123,15 @@ const PaperDetailCard = ({ paper, index }: { paper: PaperDetail; index: number }
       ))}
     </div>
 
-    {paper.doi && (
-      <a
-        href={`https://doi.org/${paper.doi}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-1.5 mt-4 text-xs font-medium text-accent hover:underline"
-      >
-        <ExternalLink className="w-3.5 h-3.5" />
-        View Publication
-      </a>
-    )}
+    <a
+      href={getPaperLink(paper)}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-1.5 mt-4 text-xs font-medium text-accent hover:underline"
+    >
+      <ExternalLink className="w-3.5 h-3.5" />
+      View Publication
+    </a>
   </motion.article>
 );
 
