@@ -10,22 +10,26 @@ import SkillsSection from "@/components/SkillsSection";
 import ContactSection from "@/components/ContactSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import ProjectsSection from "@/components/ProjectsSection";
+import InteractiveParticlesBackground from "@/components/InteractiveParticlesBackground";
 
 const Index = () => {
   return (
-    <main className="min-h-screen bg-background">
-      <Navbar />
-      <HeroSection />
-      <AboutSection />
-      <ResearchInterestsSection />
-      <PapersDetailSection />
-        {/*<ExperienceSection />*/}
-        {/*<ProjectsSection />*/}
-        <PublicationsSection />
-      <YearbookSection />
-      <AchievementsSection />
-      <SkillsSection />
-      <ContactSection />
+    <main className="relative min-h-screen bg-background overflow-x-hidden">
+      <InteractiveParticlesBackground />
+      <div className="relative z-10">
+        <Navbar />
+        <HeroSection />
+        <AboutSection />
+        <ResearchInterestsSection />
+        <PapersDetailSection />
+          {/*<ExperienceSection />*/}
+          {/*<ProjectsSection />*/}
+          <PublicationsSection />
+        <YearbookSection />
+        <AchievementsSection />
+        <SkillsSection />
+        <ContactSection />
+      </div>
     </main>
   );
 };
